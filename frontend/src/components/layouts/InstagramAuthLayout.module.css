@@ -1,0 +1,151 @@
+/* Instagram 인증 페이지 공통 레이아웃 스타일 */
+
+/* 메인 컨테이너 */
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #000;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.contentWrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  flex: 1;
+  margin: 0 auto;
+}
+
+/* 왼쪽 이미지 섹션 */
+.leftSection {
+  width: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 메인 이미지 컨테이너 */
+.imageContainer {
+  position: relative;
+  width: 320px;
+  height: 384px;
+}
+
+/* 폰 화면 배경 */
+.phoneFrame {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #8b5cf6, #ec4899, #f97316);
+  border-radius: 24px;
+  padding: 8px;
+}
+
+.phoneScreen {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.phoneContent {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #60a5fa, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instagramIcon {
+  text-align: center;
+  color: #fff;
+}
+
+.iconWrapper {
+  width: 64px;
+  height: 64px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.iconText {
+  font-size: 14px;
+}
+
+/* 플로팅 아이콘들 */
+.floatingIcon {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 18px;
+}
+
+.heartIcon {
+  top: -16px;
+  right: -16px;
+  background-color: #ef4444;
+}
+
+.fireIcon {
+  top: 25%;
+  left: -24px;
+  background-color: #f97316;
+}
+
+.purpleIcon {
+  bottom: 25%;
+  right: -24px;
+  background-color: #8b5cf6;
+}
+
+.starIcon {
+  bottom: -16px;
+  left: 25%;
+  background-color: #10b981;
+}
+
+/* 오른쪽 폼 섹션 */
+.rightSection {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 32px;
+}
+
+.formContainer {
+  width: 100%;
+  max-width: 384px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .leftSection {
+    display: none !important;
+  }
+  
+  .rightSection {
+    width: 100% !important;
+  }
+  
+  .contentWrapper {
+    flex: 1;
+  }
+}

@@ -1,0 +1,21 @@
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+self["webpackHotUpdate_N_E"]("app/forgot-password/page",{
+
+/***/ "(app-pages-browser)/./src/app/forgot-password/page.module.css":
+/*!*************************************************!*\
+  !*** ./src/app/forgot-password/page.module.css ***!
+  \*************************************************/
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+eval(__webpack_require__.ts("// extracted by mini-css-extract-plugin\nmodule.exports = {\"container\":\"page_container__6C5W_\",\"formContainer\":\"page_formContainer__ahtiv\",\"header\":\"page_header__VYnpc\",\"title\":\"page_title__4pibS\",\"subtitle\":\"page_subtitle__xgkaS\",\"description\":\"page_description__DKlkO\",\"form\":\"page_form__Ee7hv\",\"inputGroup\":\"page_inputGroup___l1mT\",\"input\":\"page_input__9TBJD\",\"inputError\":\"page_inputError__h9BVx\",\"errorText\":\"page_errorText__p7Xon\",\"submitButton\":\"page_submitButton__UjczO\",\"submitButtonLoading\":\"page_submitButtonLoading__OtGpv\",\"footer\":\"page_footer__hd_G8\",\"link\":\"page_link__v09N_\",\"loading\":\"page_loading__tmdGz\"};\n    if(true) {\n      // 1758047214739\n      var cssReload = __webpack_require__(/*! ./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js */ \"(app-pages-browser)/./node_modules/next/dist/compiled/mini-css-extract-plugin/hmr/hotModuleReplacement.js\")(module.id, {\"publicPath\":\"/_next/\",\"esModule\":false,\"locals\":true});\n      module.hot.dispose(cssReload);\n      \n    }\n  \nmodule.exports.__checksum = \"88f4649b1af0\"\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwcC1wYWdlcy1icm93c2VyKS8uL3NyYy9hcHAvZm9yZ290LXBhc3N3b3JkL3BhZ2UubW9kdWxlLmNzcyIsIm1hcHBpbmdzIjoiQUFBQTtBQUNBLGtCQUFrQjtBQUNsQixPQUFPLElBQVU7QUFDakI7QUFDQSxzQkFBc0IsbUJBQU8sQ0FBQyx3TUFBb0csY0FBYyxzREFBc0Q7QUFDdE0sTUFBTSxVQUFVO0FBQ2hCO0FBQ0E7QUFDQTtBQUNBLHlCQUF5QiIsInNvdXJjZXMiOlsiL3Vzci93b3Jrc3BhY2Uvc3JjL2FwcC9mb3Jnb3QtcGFzc3dvcmQvcGFnZS5tb2R1bGUuY3NzIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIGV4dHJhY3RlZCBieSBtaW5pLWNzcy1leHRyYWN0LXBsdWdpblxubW9kdWxlLmV4cG9ydHMgPSB7XCJjb250YWluZXJcIjpcInBhZ2VfY29udGFpbmVyX182QzVXX1wiLFwiZm9ybUNvbnRhaW5lclwiOlwicGFnZV9mb3JtQ29udGFpbmVyX19haHRpdlwiLFwiaGVhZGVyXCI6XCJwYWdlX2hlYWRlcl9fVllucGNcIixcInRpdGxlXCI6XCJwYWdlX3RpdGxlX180cGliU1wiLFwic3VidGl0bGVcIjpcInBhZ2Vfc3VidGl0bGVfX3hna2FTXCIsXCJkZXNjcmlwdGlvblwiOlwicGFnZV9kZXNjcmlwdGlvbl9fREtsa09cIixcImZvcm1cIjpcInBhZ2VfZm9ybV9fRWU3aHZcIixcImlucHV0R3JvdXBcIjpcInBhZ2VfaW5wdXRHcm91cF9fX2wxbVRcIixcImlucHV0XCI6XCJwYWdlX2lucHV0X185VEJKRFwiLFwiaW5wdXRFcnJvclwiOlwicGFnZV9pbnB1dEVycm9yX19oOUJWeFwiLFwiZXJyb3JUZXh0XCI6XCJwYWdlX2Vycm9yVGV4dF9fcDdYb25cIixcInN1Ym1pdEJ1dHRvblwiOlwicGFnZV9zdWJtaXRCdXR0b25fX1VqY3pPXCIsXCJzdWJtaXRCdXR0b25Mb2FkaW5nXCI6XCJwYWdlX3N1Ym1pdEJ1dHRvbkxvYWRpbmdfX090R3B2XCIsXCJmb290ZXJcIjpcInBhZ2VfZm9vdGVyX19oZF9HOFwiLFwibGlua1wiOlwicGFnZV9saW5rX192MDlOX1wiLFwibG9hZGluZ1wiOlwicGFnZV9sb2FkaW5nX190bWRHelwifTtcbiAgICBpZihtb2R1bGUuaG90KSB7XG4gICAgICAvLyAxNzU4MDQ3MjE0NzM5XG4gICAgICB2YXIgY3NzUmVsb2FkID0gcmVxdWlyZShcIi91c3Ivd29ya3NwYWNlL25vZGVfbW9kdWxlcy9uZXh0L2Rpc3QvY29tcGlsZWQvbWluaS1jc3MtZXh0cmFjdC1wbHVnaW4vaG1yL2hvdE1vZHVsZVJlcGxhY2VtZW50LmpzXCIpKG1vZHVsZS5pZCwge1wicHVibGljUGF0aFwiOlwiL19uZXh0L1wiLFwiZXNNb2R1bGVcIjpmYWxzZSxcImxvY2Fsc1wiOnRydWV9KTtcbiAgICAgIG1vZHVsZS5ob3QuZGlzcG9zZShjc3NSZWxvYWQpO1xuICAgICAgXG4gICAgfVxuICBcbm1vZHVsZS5leHBvcnRzLl9fY2hlY2tzdW0gPSBcIjg4ZjQ2NDliMWFmMFwiXG4iXSwibmFtZXMiOltdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(app-pages-browser)/./src/app/forgot-password/page.module.css\n"));
+
+/***/ })
+
+});

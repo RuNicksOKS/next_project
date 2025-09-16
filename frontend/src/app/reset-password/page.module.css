@@ -1,0 +1,150 @@
+/* Instagram 스타일 폼 스타일 */
+
+/* 로그인 폼 */
+.loginForm {
+  background-color: #000;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 32px;
+}
+
+/* Instagram 로고 */
+.logoContainer {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.logo {
+  font-size: 36px;
+  font-weight: bold;
+  background: linear-gradient(to right, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 10px 0;
+}
+
+.description {
+  font-size: 14px;
+  color: #9ca3af;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* 폼 요소들 */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.inputField {
+  width: 100%;
+  padding: 12px;
+  background-color: #111827;
+  border: 1px solid #374151;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.inputField:focus {
+  outline: none;
+  border-color: #6b7280;
+  box-shadow: 0 0 0 1px #6b7280;
+}
+
+.inputField::placeholder {
+  color: #9ca3af;
+}
+
+.inputField:disabled {
+  background-color: #374151;
+  color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.inputError {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 1px #ef4444 !important;
+}
+
+.errorText {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 4px;
+  text-align: left;
+}
+
+/* 로그인 버튼 */
+.loginButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #3b82f6;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.loginButton:hover {
+  background-color: #2563eb;
+}
+
+.buttonLoading {
+  background-color: #6b7280 !important;
+  cursor: not-allowed !important;
+}
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: #60a5fa;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.backButton:hover {
+  color: #93c5fd;
+}
+
+.loading {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
+  padding: 40px;
+}
+
+/* 반응형 디자인은 InstagramAuthLayout에서 처리됨 */

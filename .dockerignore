@@ -115,6 +115,9 @@ vscode_git_push.pub
 # 프로젝트 가이드 파일
 PROJECT_STRUCTURE_GUIDE.txt
 
+# 스크립트 파일
+portainer-manager.sh
+
 # 기타
 memo.txt
 *.swp

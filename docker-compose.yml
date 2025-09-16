@@ -47,7 +47,7 @@ services: # 서비스(컨테이너) 목록 시작
     depends_on:
       - db-dev # db 서비스가 먼저 실행되어야 함
     env_file:
-      - ./backend/.env # 백엔드 환경 변수 파일 사용
+      - ./backend/.env.dev # 백엔드 환경 변수 파일 사용
     stdin_open: true # 표준 입력 활성화(터미널용)
     tty: true # TTY 활성화(터미널용)
 

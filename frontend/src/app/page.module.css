@@ -1,0 +1,272 @@
+/* Instagram 로그인 페이지 스타일 - InstagramAuthLayout에서 레이아웃 처리됨 */
+
+/* 로그인 폼 */
+.loginForm {
+  background-color: #000;
+  border: 1px solid #374151;
+  border-radius: 8px;
+  padding: 32px;
+}
+
+/* Instagram 로고 */
+.logoContainer {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.logo {
+  font-size: 36px;
+  font-weight: bold;
+  background: linear-gradient(to right, #a855f7, #ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* 폼 요소들 */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inputField {
+  width: 100%;
+  padding: 12px;
+  background-color: #111827;
+  border: 1px solid #374151;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 14px;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.inputField:focus {
+  outline: none;
+  border-color: #6b7280;
+  box-shadow: 0 0 0 1px #6b7280;
+}
+
+.inputField::placeholder {
+  color: #9ca3af;
+}
+
+/* 로그인 버튼 */
+.loginButton {
+  width: 100%;
+  padding: 12px;
+  background-color: #3b82f6;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.loginButton:hover {
+  background-color: #2563eb;
+}
+
+/* 구분선 */
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 24px 0;
+}
+
+.dividerLine {
+  flex: 1;
+  border-top: 1px solid #374151;
+}
+
+.dividerText {
+  padding: 0 16px;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+/* 비밀번호 찾기 링크 */
+.forgotPassword {
+  text-align: center;
+  margin-top: 24px;
+}
+
+.forgotPasswordLink {
+  color: #60a5fa;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.forgotPasswordLink:hover {
+  color: #93c5fd;
+}
+
+/* 회원가입 링크 */
+.signupContainer {
+  margin-top: 16px;
+  text-align: center;
+}
+
+.signupText {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.signupLink {
+  color: #60a5fa;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.signupLink:hover {
+  color: #93c5fd;
+}
+
+/* 회원가입 관련 스타일 */
+.header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 10px 0;
+}
+
+.description {
+  font-size: 14px;
+  color: #9ca3af;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.inputError {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 1px #ef4444 !important;
+}
+
+.errorText {
+  color: #ef4444;
+  font-size: 12px;
+  margin-top: 4px;
+  text-align: left;
+}
+
+.buttonLoading {
+  background-color: #6b7280 !important;
+  cursor: not-allowed !important;
+}
+
+.buttonDisabled {
+  background-color: #6b7280 !important;
+  cursor: not-allowed !important;
+  opacity: 0.6;
+}
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.backButton {
+  background: none;
+  border: none;
+  color: #60a5fa;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.backButton:hover {
+  color: #93c5fd;
+}
+
+.loading {
+  text-align: center;
+  color: #9ca3af;
+  font-size: 14px;
+  padding: 40px;
+}
+
+/* 이메일 인증 관련 스타일 */
+.verificationSection {
+  margin-top: 12px;
+}
+
+.verificationButton {
+  width: 100%;
+  padding: 8px 16px;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.verificationButton:hover:not(:disabled) {
+  background-color: #059669;
+}
+
+.verificationButton:disabled {
+  background-color: #6b7280;
+  cursor: not-allowed;
+}
+
+.verificationInput {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+
+.verificationInput input {
+  flex: 1;
+}
+
+.verifyButton {
+  padding: 8px 16px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.verifyButton:hover {
+  background-color: #2563eb;
+}
+
+.verifiedMessage {
+  color: #10b981;
+  font-size: 12px;
+  text-align: center;
+  padding: 8px;
+  background-color: rgba(16, 185, 129, 0.1);
+  border-radius: 4px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* 반응형 디자인은 InstagramAuthLayout에서 처리됨 */
