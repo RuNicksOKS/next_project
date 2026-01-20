@@ -1,4 +1,4 @@
-/* Instagram 스타일 폼 스타일 */
+/* 비밀번호 재설정 페이지 스타일 */
 
 /* 로그인 폼 */
 .loginForm {
@@ -8,7 +8,7 @@
   padding: 32px;
 }
 
-/* Instagram 로고 */
+/* Next 로고 */
 .logoContainer {
   text-align: center;
   margin-bottom: 32px;
@@ -64,7 +64,6 @@
   color: #fff;
   font-size: 14px;
   box-sizing: border-box;
-  font-family: inherit;
 }
 
 .inputField:focus {
@@ -147,4 +146,4 @@
   padding: 40px;
 }
 
-/* 반응형 디자인은 InstagramAuthLayout에서 처리됨 */
+/* 반응형 디자인은 NextAuthLayout에서 처리됨 */

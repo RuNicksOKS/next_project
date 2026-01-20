@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Instagram',
-  description: 'Instagram 로그인 페이지',
+  title: 'Next.js',
+  description: 'Next.js 로그인 페이지',
 }
 
 export default function RootLayout({

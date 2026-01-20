@@ -11,11 +11,11 @@ export const API_CONFIG = {
   
   // API 엔드포인트들
   ENDPOINTS: {
-    SEND_VERIFICATION_EMAIL: '/api/test/send_verification_email/',
-    VERIFY_EMAIL: '/api/test/verify_email/',
-    SIGNUP: '/api/test/signup/',
-    HELLO: '/api/test/hello/',
-    HEALTH: '/api/test/health/',
+    SEND_VERIFICATION_EMAIL: '/test/send_verification_email/',
+    VERIFY_EMAIL: '/test/verify_email/',
+    SIGNUP: '/test/signup/',
+    HELLO: '/test/hello/',
+    HEALTH: '/test/health/',
   }
 }
 

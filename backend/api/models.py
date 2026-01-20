@@ -5,23 +5,51 @@ import random
 import string
 from datetime import timedelta
 import secrets
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
-class User(models.Model):
+# 1. 매니저 추가 (create_user를 가능하게 함)
+class UserManager(BaseUserManager):
+    def create_user(self, email, nickname, username, password=None):
+        if not email:
+            raise ValueError('이메일은 필수 항목입니다.')
+        
+        user = self.model(
+            email=self.normalize_email(email),
+            nickname=nickname,
+            username=username,
+        )
+        user.set_password(password) # 비밀번호를 해시(암호화) 처리
+        user.save(using=self._db)
+        return user
+
+    def create_superuser(self, email, nickname, username, password=None):
+        user = self.create_user(email, nickname, username, password)
+        user.is_admin = True
+        user.is_staff = True
+        user.save(using=self._db)
+        return user
+    
+class User(AbstractBaseUser):
     email = models.EmailField(unique=True, validators=[EmailValidator()])
     nickname = models.CharField(max_length=100)
     username = models.CharField(max_length=100)
-    password = models.CharField(max_length=255)  # 실제로는 해시된 비밀번호를 저장해야 함
-    is_verified = models.BooleanField(default=False)  # 이메일 인증 여부
+    is_verified = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    # 이 모델을 관리할 매니저 연결 (이게 있어야 create_user를 찾음)
+    objects = UserManager()
+
+    # 로그인 시 ID로 사용할 필드
+    USERNAME_FIELD = 'email'
+    # 슈퍼유저 생성 시 추가로 물어볼 필드
+    REQUIRED_FIELDS = ['username', 'nickname']
+
     class Meta:
         db_table = 'user_list'
-        verbose_name = 'User'
-        verbose_name_plural = 'Users'
 
     def __str__(self):
-        return f"{self.username} ({self.email})"
+        return self.email
 
 class EmailVerification(models.Model):
     email = models.EmailField()
@@ -37,8 +65,9 @@ class EmailVerification(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.verification_code:
-            # 6자리 랜덤 숫자 생성
-            self.verification_code = ''.join(random.choices(string.digits, k=6))
+            # 숫자와 알파벳 혼합 6자리 코드 생성
+            characters = string.ascii_uppercase + string.digits
+            self.verification_code = ''.join(random.choices(characters, k=6))
         
         if not self.expires_at:
             # 10분 후 만료

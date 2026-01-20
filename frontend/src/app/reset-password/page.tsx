@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter, useSearchParams } from 'next/navigation'
-import Notification from '../../components/ui/Notification'
-import InstagramAuthLayout from '../../components/layouts/InstagramAuthLayout'
+import Notification from '../../components/popup/Notification'
+import NextAuthLayout from '../../components/mainpage/NextAuthLayout'
 import styles from './page.module.css'
 
 export default function ResetPasswordPage() {
@@ -168,20 +168,20 @@ export default function ResetPasswordPage() {
 
   if (!isClient) {
     return (
-      <InstagramAuthLayout>
+      <NextAuthLayout>
         <div className={styles.loading}>로딩 중...</div>
-      </InstagramAuthLayout>
+      </NextAuthLayout>
     )
   }
 
   if (tokenValid === false) {
     return (
-      <InstagramAuthLayout>
+      <NextAuthLayout>
         <div className={styles.loginForm}>
-          {/* Instagram 로고 */}
+          {/* Next 로고 */}
           <div className={styles.logoContainer}>
             <h1 className={styles.logo}>
-              Instagram
+              Next.js
             </h1>
           </div>
 
@@ -202,17 +202,17 @@ export default function ResetPasswordPage() {
             </button>
           </div>
         </div>
-      </InstagramAuthLayout>
+      </NextAuthLayout>
     )
   }
 
   return (
-    <InstagramAuthLayout>
+    <NextAuthLayout>
       <div className={styles.loginForm}>
-        {/* Instagram 로고 */}
+        {/* Next 로고 */}
         <div className={styles.logoContainer}>
           <h1 className={styles.logo}>
-            Instagram
+            Next.js
           </h1>
         </div>
 
@@ -284,6 +284,6 @@ export default function ResetPasswordPage() {
           onClose={closeNotification}
         />
       )}
-    </InstagramAuthLayout>
+    </NextAuthLayout>
   )
 }

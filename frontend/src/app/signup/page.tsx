@@ -3,8 +3,8 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import Notification from '../../components/ui/Notification'
-import InstagramAuthLayout from '../../components/layouts/InstagramAuthLayout'
+import Notification from '../../components/popup/Notification'
+import NextAuthLayout from '../../components/mainpage/NextAuthLayout'
 import styles from './page.module.css'
 
 export default function SignupPage() {
@@ -45,11 +45,31 @@ export default function SignupPage() {
   const [isSendingEmail, setIsSendingEmail] = useState(false)
   const [emailSent, setEmailSent] = useState(false)
   const [isClient, setIsClient] = useState(false)
+  const [isVerified, setIsVerified] = useState(false)
 
   // 클라이언트 사이드에서만 실행되도록 설정
   useEffect(() => {
-    setIsClient(true)
-  }, [])
+    // sessionStorage에서 인증된 이메일 확인
+    const verifiedEmail = sessionStorage.getItem('verifiedEmail')
+    if (verifiedEmail) {
+      setFormData(prev => ({
+        ...prev,
+        email: verifiedEmail
+      }))
+      setEmailVerified(true)
+      setIsVerified(true)
+      setIsClient(true)
+    } else {
+      // 인증되지 않은 상태에서 직접 접근한 경우 메인 페이지로 리다이렉트
+      setIsClient(true)
+      router.push('/')
+    }
+
+    // 페이지 언마운트 시 sessionStorage에서 인증 정보 삭제
+    return () => {
+      sessionStorage.removeItem('verifiedEmail')
+    }
+  }, [router])
 
   // 이메일 형식 검증 함수
   const validateEmail = (email: string) => {
@@ -98,7 +118,7 @@ export default function SignupPage() {
 
     setIsSendingEmail(true)
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/test/send_verification_email/`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/test/send_verification_email/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -130,7 +150,7 @@ export default function SignupPage() {
     }
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/test/verify_email/`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/test/verify_email/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -250,7 +270,7 @@ export default function SignupPage() {
     }
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/test/signup/`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/test/signup/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -303,21 +323,17 @@ export default function SignupPage() {
     }
   }
 
-  if (!isClient) {
-    return (
-      <InstagramAuthLayout>
-        <div className={styles.loading}>로딩 중...</div>
-      </InstagramAuthLayout>
-    )
+  if (!isClient || !isVerified) {
+    return null
   }
 
   return (
-    <InstagramAuthLayout>
+    <NextAuthLayout>
       <div className={styles.loginForm}>
-        {/* Instagram 로고 */}
+        {/* Next 로고 */}
         <div className={styles.logoContainer}>
           <h1 className={styles.logo}>
-            Instagram
+            Next.js
           </h1>
         </div>
 
@@ -327,25 +343,41 @@ export default function SignupPage() {
 
         <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.inputGroup}>
-            <div className={styles.emailInputContainer}>
-              <input
-                type="email"
-                name="email"
-                placeholder="이메일"
-                value={formData.email}
-                onChange={handleInputChange}
-                onBlur={handleBlur}
-                className={`${styles.inputField} ${errors.email && touched.email ? styles.inputError : ''} ${validateEmail(formData.email) && touched.email && !errors.email ? styles.inputSuccess : ''}`}
-              />
-              <button
-                type="button"
-                onClick={sendVerificationEmail}
-                disabled={isSendingEmail || !validateEmail(formData.email)}
-                className={styles.emailVerifyButton}
-              >
-                {isSendingEmail ? '전송 중...' : '인증'}
-              </button>
-            </div>
+            {/* 인증된 이메일 표시 */}
+            {emailVerified && (
+              <div className={styles.verifiedEmailDisplay}>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="이메일"
+                  value={formData.email}
+                  disabled={true}
+                  className={`${styles.inputField} ${styles.verifiedEmail}`}
+                />
+                <span className={styles.verifiedBadge}>✓ 인증됨</span>
+              </div>
+            )}
+            {!emailVerified && (
+              <div className={styles.emailInputContainer}>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="이메일"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  onBlur={handleBlur}
+                  className={`${styles.inputField} ${errors.email && touched.email ? styles.inputError : ''} ${validateEmail(formData.email) && touched.email && !errors.email ? styles.inputSuccess : ''}`}
+                />
+                <button
+                  type="button"
+                  onClick={sendVerificationEmail}
+                  disabled={isSendingEmail || !validateEmail(formData.email)}
+                  className={styles.emailVerifyButton}
+                >
+                  {isSendingEmail ? '전송 중...' : '인증'}
+                </button>
+              </div>
+            )}
             {errors.email && touched.email && (
               <span className={styles.errorText}>{errors.email}</span>
             )}
@@ -411,9 +443,16 @@ export default function SignupPage() {
               <input
                 type="text"
                 name="verificationCode"
-                placeholder="인증번호 6자리"
+                placeholder="인증번호 6자리 (숫자, 알파벳)"
                 value={formData.verificationCode}
-                onChange={handleInputChange}
+                onChange={(e) => {
+                  handleInputChange({
+                    target: {
+                      name: 'verificationCode',
+                      value: e.target.value.toUpperCase()
+                    }
+                  } as React.ChangeEvent<HTMLInputElement>);
+                }}
                 onBlur={handleBlur}
                 maxLength={6}
                 className={`${styles.inputField} ${errors.verificationCode && touched.verificationCode ? styles.inputError : ''} ${formData.verificationCode.length === 6 && touched.verificationCode && !errors.verificationCode ? styles.inputSuccess : ''}`}
@@ -428,13 +467,6 @@ export default function SignupPage() {
               {errors.verificationCode && touched.verificationCode && (
                 <span className={styles.errorText}>{errors.verificationCode}</span>
               )}
-            </div>
-          )}
-
-          {/* 이메일 인증 완료 메시지 */}
-          {emailVerified && (
-            <div className={styles.verifiedMessage}>
-              ✅ 이메일 인증이 완료되었습니다
             </div>
           )}
 
@@ -466,6 +498,6 @@ export default function SignupPage() {
           onClose={hideNotification}
         />
       )}
-    </InstagramAuthLayout>
+    </NextAuthLayout>
   )
 }

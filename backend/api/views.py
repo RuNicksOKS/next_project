@@ -91,13 +91,15 @@ class TestViewSet(viewsets.ViewSet):
                 }, status=status.HTTP_400_BAD_REQUEST)
             
             # 사용자 생성
-            user = User.objects.create(
+            user = User.objects.create_user(
                 email=data['email'],
                 nickname=data['nickname'],
                 username=data['username'],
-                password=data['password'],  # 실제로는 해시된 비밀번호를 저장해야 함
-                is_verified=True
+                password=data['password']
             )
+            # 이메일 인증 완료 처리
+            user.is_verified = True
+            user.save()
             
             # 인증 완료된 이메일 인증 레코드 삭제
             email_verification.delete()
@@ -158,11 +160,11 @@ class TestViewSet(viewsets.ViewSet):
             verification = EmailVerification.objects.create(email=email)
             
             # 이메일 전송
-            subject = 'Instagram 회원가입 인증번호'
+            subject = 'Next.js 회원가입 인증번호'
             message = f'''
                 안녕하세요!
 
-                Instagram 회원가입을 위한 인증번호입니다.
+                Next.js 회원가입을 위한 인증번호입니다.
 
                 인증번호: {verification.verification_code}
 
@@ -170,7 +172,7 @@ class TestViewSet(viewsets.ViewSet):
                 인증번호를 입력하여 회원가입을 완료해주세요.
 
                 감사합니다.
-                Instagram 팀
+                Next.js 팀
             '''
             
             try:
@@ -295,7 +297,7 @@ class TestViewSet(viewsets.ViewSet):
             reset_url = f"{settings.FRONTEND_URL}/reset-password?token={reset_token.token}"
             
             # 이메일 전송
-            subject = 'Instagram 비밀번호 재설정'
+            subject = 'Next.js 비밀번호 재설정'
             message = f'''
                 안녕하세요, {user.username}님!
 
@@ -308,7 +310,7 @@ class TestViewSet(viewsets.ViewSet):
                 만약 비밀번호 재설정을 요청하지 않으셨다면, 이 이메일을 무시해주세요.
 
                 감사합니다.
-                Instagram 팀
+                Next.js 팀
             '''
             
             try:
@@ -392,7 +394,7 @@ class TestViewSet(viewsets.ViewSet):
                 }, status=status.HTTP_404_NOT_FOUND)
             
             # 비밀번호 업데이트
-            user.password = new_password  # 실제로는 해시된 비밀번호를 저장해야 함
+            user.set_password(new_password)
             user.save()
             
             # 토큰 사용 처리
