@@ -1,4 +1,4 @@
-version: '3.9' # 도커 컴포즈 파일 버전 지정
+#version: '3.9' # 도커 컴포즈 파일 버전 지정
 
 services: # 서비스(컨테이너) 목록 시작  
   db-dev: # 데이터베이스(PostgreSQL) 서비스

@@ -1,38 +1,27 @@
-# Git
-.git
-.gitignore
 
-# IDE files
-.vscode
-.idea
-*.swp
-*.swo
+# ============================================================
+# Git 
+# ============================================================
+.git/
+vscode_git_push
+vscode_git_push.pub
 
-# OS files
-.DS_Store
-Thumbs.db
 
-# Logs
-*.log
-npm-debug.log*
-
-# Dependencies
-node_modules
-
-# Build outputs
-build
-dist
-
-# Environment files - 모든 .env 파일 제외
-.env*
-!.env.example
-
-# Python 관련
+# ============================================================
+# Backend (Django / Python / PostgreSQL)
+# ============================================================
+# Python Cache
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
 .Python
+.cache/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Python Build / Package
 develop-eggs/
 downloads/
 eggs/
@@ -49,39 +38,29 @@ share/python-wheels/
 *.egg
 MANIFEST
 *.manifest
-*.spec
-pip-log.txt
-pip-delete-this-directory.txt
 
-# Python 테스트 및 커버리지
+# Python Test / Coverage
 htmlcov/
 .tox/
 .nox/
 .coverage
 .coverage.*
-.cache
 nosetests.xml
 coverage.xml
 *.cover
 *.py,cover
 .hypothesis/
-.pytest_cache/
 cover/
 
-# Python 가상환경
+# Python Virtual Environment
 .venv/
 venv/
 ENV/
+env/
 env.bak/
 venv.bak/
-env/
 
-# Python 패키지 관리
-Pipfile.lock
-poetry.lock
-pyproject.toml
-
-# 데이터베이스
+# Database
 *.sqlite3
 *.sqlite3-journal
 postgres_data/
@@ -90,8 +69,55 @@ data_bak/
 database_setting/
 volumes/
 
-# 배포 및 보안 파일
+
+# ============================================================
+# Frontend (Next.js / Node.js)
+# ============================================================
+node_modules/
+.next/
+out/
+build/
+dist/
+coverage/
+*.tsbuildinfo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# ============================================================
+# 기타 (IDE / OS / Docker / Security / Local Files)
+# ============================================================
+# IDE / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Environment Variables
+.env
+.env.*
+!.env.example
+!**/.env.example
+
+# Docker / Deployment
+docker-compose.override.yml
+docker-compose.local.yml
 deploy/
+config.local.yml
+settings.local.py
+local_settings.py
+
+# Security / Credentials
 *.pem
 *.key
 *.crt
@@ -102,25 +128,8 @@ deploy/
 aws-credentials.json
 id_rsa*
 ssh/
-docker-compose.override.yml
-docker-compose.local.yml
-config.local.yml
-settings.local.py
-local_settings.py
 
-# Git 키 파일
-vscode_git_push
-vscode_git_push.pub
-
-# 프로젝트 가이드 파일
+# Local Documentation / Scripts
 PROJECT_STRUCTURE_GUIDE.txt
-
-# 스크립트 파일
 portainer-manager.sh
-
-# 기타
 memo.txt
-*.swp
-*.swo
-*~
-

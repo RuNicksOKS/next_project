@@ -228,6 +228,9 @@ docker-compose down
 # 볼륨까지 삭제
 docker-compose down -v
 
+# 모든 컨테이너 강제 종료
+docker kill $(docker ps -q)
+
 # 이미지 재빌드
 docker-compose up --build
 
